@@ -1,0 +1,33 @@
+import React from 'react'
+
+
+
+const PublicIp = (props) => {
+
+    const [ip, setIp] = useState(null);
+
+    useEffect(() => {
+      const fetchIP = async () => {
+        const url =
+          props.ipVersion === "ipv4"
+            ? "https://api.ipify.org?format=json"
+            : "https://api64.ipify.org?format=json";
+
+        const response = await fetch(url);
+        const json = await response.json();
+        setIp(json.ip);
+      };
+
+      fetchIP();
+    }, [props.ipVersion]);
+
+  return (
+    <div>
+      {props.ipVersion === "ipv4" && <p>Your public IPv4 address is: {ip}</p>}
+
+      {props.ipVersion === "ipv6" && <p>Your public IPv6 address is: {ip}</p>}
+    </div>
+  );
+}
+
+export default PublicIp

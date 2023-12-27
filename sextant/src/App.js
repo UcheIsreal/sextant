@@ -1,10 +1,12 @@
 import React from "react";
-import Banner from "./components/Banner";
+import Banner from "./Banner";
+import Exhibit from "./Exhibit";
 
 function App() {
   return (
     <div className="App">
-      <Banner />      
+      <Banner bannerText="Sextant" />
+    <Exhibit name="I'm an exhibit!"></Exhibit>
     </div>
   );
 }
