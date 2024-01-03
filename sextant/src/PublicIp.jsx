@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 
 
@@ -10,8 +10,8 @@ const PublicIp = (props) => {
       const fetchIP = async () => {
         const url =
           props.ipVersion === "ipv4"
-            ? "https://api.ipify.org?format=json"
-            : "https://api64.ipify.org?format=json";
+            ? "https://api.ipify.org"
+            : "https://api6.ipify.org";
 
         const response = await fetch(url);
         const json = await response.json();
